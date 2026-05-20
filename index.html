@@ -8,19 +8,17 @@
 
   <style>
     :root {
-      --purple-dark: #3b0764;
-      --purple: #7c3aed;
-      --purple-mid: #6d28d9;
-      --purple-soft: #5b21b6;
-      --yellow: #ffd84d;
-      --yellow-soft: #fff1a6;
-      --yellow-pale: #fff9d6;
+      --purple-dark: #2e1065;
+      --purple: #6d28d9;
+      --purple-bright: #8b5cf6;
+      --purple-soft: #f3e8ff;
+      --purple-line: rgba(109, 40, 217, 0.16);
       --white: #ffffff;
-      --text: #3b0764;
-      --muted: #5f2d86;
-      --border: rgba(124, 58, 237, 0.24);
-      --shadow: 0 24px 60px rgba(59, 7, 100, 0.18);
-      --radius: 26px;
+      --white-soft: #fbfaff;
+      --text: #2e1065;
+      --muted: #6b5b83;
+      --shadow: 0 22px 55px rgba(46, 16, 101, 0.12);
+      --radius: 24px;
     }
 
     * {
@@ -36,7 +34,7 @@
     body {
       font-family: Inter, Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-soft) 45%, var(--yellow-pale) 100%);
+      background: var(--white);
       line-height: 1.65;
     }
 
@@ -51,12 +49,12 @@
     }
 
     header {
-      background: rgba(255, 216, 77, 0.94);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(14px);
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.24);
+      border-bottom: 1px solid var(--purple-line);
     }
 
     .nav {
@@ -79,13 +77,13 @@
     .brand-mark {
       width: 46px;
       height: 46px;
-      border-radius: 50%;
-      background: var(--purple-dark);
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple-bright));
       display: grid;
       place-items: center;
-      color: var(--yellow);
+      color: var(--white);
       font-weight: 900;
-      box-shadow: 0 0 30px rgba(124, 58, 237, 0.32);
+      box-shadow: 0 16px 34px rgba(109, 40, 217, 0.24);
     }
 
     .nav-links {
@@ -104,23 +102,32 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 82% 18%, rgba(124, 58, 237, 0.18), transparent 28%),
-        radial-gradient(circle at 18% 90%, rgba(124, 58, 237, 0.13), transparent 24%),
-        linear-gradient(135deg, var(--yellow) 0%, var(--yellow-soft) 48%, var(--yellow-pale) 100%);
+      background: var(--white);
       color: var(--purple-dark);
-      padding: 108px 0 86px;
+      padding: 104px 0 80px;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(124, 58, 237, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 58, 237, 0.12) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+      width: 720px;
+      height: 720px;
+      right: -280px;
+      top: -260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.16), rgba(139, 92, 246, 0.04) 48%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      left: -170px;
+      bottom: -170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109, 40, 217, 0.12), transparent 70%);
       pointer-events: none;
     }
 
@@ -140,8 +147,8 @@
       padding: 9px 15px;
       margin-bottom: 22px;
       border-radius: 999px;
-      background: rgba(124, 58, 237, 0.1);
-      border: 1px solid rgba(124, 58, 237, 0.22);
+      background: var(--purple-soft);
+      border: 1px solid var(--purple-line);
       color: var(--purple-dark);
       font-weight: 900;
       text-transform: uppercase;
@@ -150,18 +157,18 @@
     }
 
     h1 {
-      font-size: clamp(2.7rem, 6vw, 5.7rem);
+      font-size: clamp(2.8rem, 6vw, 5.8rem);
       line-height: 0.98;
-      letter-spacing: -2px;
+      letter-spacing: -2.2px;
       margin-bottom: 24px;
       color: var(--purple-dark);
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 780px;
       color: var(--muted);
       font-size: 1.16rem;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .hero-actions {
@@ -177,35 +184,35 @@
       border-radius: 999px;
       padding: 14px 24px;
       font-weight: 900;
-      border: 2px solid var(--purple-dark);
-      background: var(--purple-dark);
-      color: var(--yellow);
+      border: 2px solid var(--purple);
+      background: var(--purple);
+      color: var(--white);
       transition: 0.22s ease;
-      box-shadow: 0 16px 36px rgba(124, 58, 237, 0.24);
+      box-shadow: 0 16px 36px rgba(109, 40, 217, 0.22);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      background: var(--purple);
-      border-color: var(--purple);
+      background: var(--purple-dark);
+      border-color: var(--purple-dark);
     }
 
     .btn-outline {
-      background: transparent;
+      background: var(--white);
       color: var(--purple-dark);
-      border-color: rgba(124, 58, 237, 0.36);
+      border-color: var(--purple-line);
       box-shadow: none;
     }
 
     .btn-outline:hover {
-      background: var(--purple-dark);
-      color: var(--yellow);
-      border-color: var(--purple-dark);
+      background: var(--purple-soft);
+      color: var(--purple-dark);
+      border-color: var(--purple-bright);
     }
 
     .hero-panel {
-      background: rgba(255, 255, 255, 0.42);
-      border: 1px solid rgba(124, 58, 237, 0.22);
+      background: var(--white);
+      border: 1px solid var(--purple-line);
       border-radius: var(--radius);
       padding: 32px;
       box-shadow: var(--shadow);
@@ -226,7 +233,7 @@
     .quick-list li {
       padding: 15px 16px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.55);
+      background: var(--white-soft);
       border-left: 5px solid var(--purple);
       color: var(--purple-dark);
       font-weight: 800;
@@ -234,10 +241,15 @@
 
     section {
       padding: 78px 0;
+      background: var(--white);
+    }
+
+    section:nth-of-type(even) {
+      background: var(--white-soft);
     }
 
     .section-head {
-      max-width: 860px;
+      max-width: 880px;
       margin-bottom: 34px;
     }
 
@@ -271,17 +283,17 @@
     }
 
     .card {
-      background: var(--yellow-pale);
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1px solid var(--purple-line);
       border-radius: var(--radius);
       padding: 32px;
-      box-shadow: 0 18px 45px rgba(59, 7, 100, 0.1);
+      box-shadow: 0 18px 45px rgba(46, 16, 101, 0.08);
     }
 
     .card.dark {
-      background: var(--purple-dark);
-      color: var(--yellow-pale);
-      border-color: rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+      color: var(--white);
+      border-color: transparent;
     }
 
     .card h3 {
@@ -295,17 +307,23 @@
     }
 
     .card.dark p {
-      color: var(--yellow-soft);
+      color: rgba(255, 255, 255, 0.82);
     }
 
     .notice {
       margin-top: 18px;
       padding: 17px;
       border-radius: 18px;
-      background: var(--yellow-soft);
+      background: var(--purple-soft);
       color: var(--purple-dark);
       font-weight: 800;
-      border: 1px solid rgba(124, 58, 237, 0.18);
+      border: 1px solid var(--purple-line);
+    }
+
+    .card.dark .notice {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.18);
     }
 
     .topic-grid {
@@ -316,8 +334,8 @@
     }
 
     .topic {
-      background: var(--yellow-pale);
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1px solid var(--purple-line);
       border-radius: 20px;
       padding: 18px;
       font-weight: 800;
@@ -325,7 +343,7 @@
       min-height: 92px;
       display: flex;
       align-items: center;
-      box-shadow: 0 12px 28px rgba(59, 7, 100, 0.08);
+      box-shadow: 0 12px 28px rgba(46, 16, 101, 0.06);
     }
 
     .dates {
@@ -335,11 +353,11 @@
     }
 
     .date-card {
-      background: var(--purple-dark);
-      color: var(--yellow-pale);
+      background: var(--white);
+      color: var(--purple-dark);
       border-radius: 24px;
       padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--purple-line);
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
@@ -351,7 +369,7 @@
       width: 110px;
       height: 110px;
       border-radius: 50%;
-      background: rgba(255, 216, 77, 0.24);
+      background: rgba(139, 92, 246, 0.14);
       top: -48px;
       right: -42px;
     }
@@ -367,7 +385,7 @@
     .date-card span {
       position: relative;
       z-index: 1;
-      color: var(--yellow);
+      color: var(--purple);
       font-weight: 900;
     }
 
@@ -379,7 +397,7 @@
 
     .person {
       padding: 15px 0;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+      border-bottom: 1px solid var(--purple-line);
     }
 
     .person:last-child {
@@ -400,17 +418,16 @@
     .pc-box {
       padding: 18px;
       border-radius: 18px;
-      background: var(--purple-dark);
-      color: var(--yellow);
+      background: var(--purple-soft);
+      color: var(--purple-dark);
       text-align: center;
-      border: 1px dashed var(--yellow);
+      border: 1px dashed var(--purple-bright);
       font-weight: 900;
     }
 
     .submit-band {
-      background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-soft) 100%);
-      color: var(--purple-dark);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+      color: var(--white);
       border-radius: 34px;
       padding: 54px;
       display: flex;
@@ -428,7 +445,7 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background: rgba(124, 58, 237, 0.13);
+      background: rgba(255, 255, 255, 0.13);
       right: -90px;
       top: -120px;
     }
@@ -439,33 +456,33 @@
     }
 
     .submit-band h2 {
-      color: var(--purple-dark);
+      color: var(--white);
       margin-bottom: 10px;
     }
 
     .submit-band p {
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.82);
       max-width: 760px;
     }
 
     .submit-band .btn {
-      background: var(--purple-dark);
-      color: var(--yellow);
-      border-color: var(--purple-dark);
+      background: var(--white);
+      color: var(--purple-dark);
+      border-color: var(--white);
       white-space: nowrap;
     }
 
     .submit-band .btn:hover {
-      background: var(--purple);
-      border-color: var(--purple);
+      background: var(--purple-soft);
+      border-color: var(--purple-soft);
     }
 
     footer {
-      background: var(--yellow);
+      background: var(--white);
       color: var(--purple-dark);
       text-align: center;
       padding: 34px 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--purple-line);
       font-weight: 700;
     }
 
@@ -584,175 +601,4 @@
               AI is reshaping industrial sectors by enabling intelligent automation, predictive maintenance, quality inspection, resource optimization, supply-chain intelligence, autonomous operations, and advanced decision support. However, moving AI from prototypes to production requires more than model accuracy. Industrial AI solutions must operate under real constraints, including legacy systems, limited data, safety requirements, domain-specific regulations, explainability needs, cybersecurity risks, and changing operational environments.
             </p>
             <p style="margin-top: 16px;">
-              AI4I focuses on research and practice that addresses these challenges. The workshop welcomes contributions on AI methods, architectures, platforms, evaluation approaches, industrial case studies, deployment lessons, and socio-technical perspectives related to the adoption of AI in manufacturing, energy, mobility, healthcare, logistics, construction, agriculture, telecom, smart cities, and other industrial domains.
-            </p>
-          </div>
-
-          <div class="card dark">
-            <h3>Submission Types</h3>
-            <p>
-              The workshop welcomes full research papers, short papers, position papers, experience reports, industrial case studies, tool demonstrations, benchmark and dataset papers, and papers describing negative results or lessons learned from real-world deployments.
-            </p>
-            <p style="margin-top: 16px;">
-              Submissions should clearly explain the industrial problem, AI approach, evaluation setting, practical relevance, and expected contribution to both research and practice.
-            </p>
-            <div class="notice">
-              Accepted papers will be published in the NGEN-AI 2026 main conference proceedings in Springer CCIS series, indexed in leading databases including SCOPUS, Norwegian Register for Scientific Journals and Series, DBLP, EI Compendex, INSPEC, SCImago, zbMATH, and the Japanese Science and Technology Agency (JST).
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="topics">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Topics of Interest</span>
-          <h2>Relevant topics include, but are not limited to:</h2>
-        </div>
-
-        <div class="topic-grid">
-          <div class="topic">AI for manufacturing, production, and process optimization</div>
-          <div class="topic">Predictive maintenance and anomaly detection in industrial systems</div>
-          <div class="topic">Industrial IoT, edge AI, and cloud-edge intelligence</div>
-          <div class="topic">Digital twins, simulation, and AI-enabled system monitoring</div>
-          <div class="topic">Computer vision for inspection, quality control, and safety</div>
-          <div class="topic">Generative AI and LLMs for industrial workflows</div>
-          <div class="topic">Agentic AI, autonomous operations, and intelligent decision support</div>
-          <div class="topic">Trustworthy, explainable, safe, and responsible AI for industry</div>
-          <div class="topic">Human-AI collaboration in industrial environments</div>
-          <div class="topic">AI for logistics, supply chains, and resource planning</div>
-          <div class="topic">Federated learning and privacy-preserving AI across industrial sites</div>
-          <div class="topic">MLOps, lifecycle management, monitoring, and maintenance of industrial AI</div>
-          <div class="topic">AI for energy efficiency, sustainability, and circular industry</div>
-          <div class="topic">Cybersecurity, resilience, and risk management for industrial AI</div>
-          <div class="topic">Industrial datasets, benchmarks, testbeds, and reproducibility</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="dates">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Important Dates</span>
-          <h2>Key deadlines</h2>
-          <p>The workshop follows the NGEN-AI 2026 schedule.</p>
-        </div>
-
-        <div class="dates">
-          <div class="date-card">
-            <strong>Paper Submission</strong>
-            <span>August 1st, 2026</span>
-          </div>
-          <div class="date-card">
-            <strong>Author Notification</strong>
-            <span>August 12th, 2026</span>
-          </div>
-          <div class="date-card">
-            <strong>Camera-Ready Due</strong>
-            <span>August 20th, 2026</span>
-          </div>
-          <div class="date-card">
-            <strong>Conference & Workshop</strong>
-            <span>1–4 September 2026</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="venue">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Venue</span>
-          <h2>Hosted by the University of Trento</h2>
-          <p>
-            AI4I 2026 will be held with NGEN-AI 2026 at the Department of Information Engineering and Computer Science, University of Trento, in Trento, Italy.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>Location</h3>
-            <p><strong>Host institution:</strong> University of Trento</p>
-            <p><strong>Department:</strong> Information Engineering and Computer Science</p>
-            <p><strong>Venue:</strong> Polo Ferrari - Povo 1</p>
-            <p><strong>City:</strong> Trento, Italy</p>
-          </div>
-          <div class="card dark">
-            <h3>Conference Experience</h3>
-            <p>
-              The venue provides a professional academic environment for technical sessions, discussions, networking, and collaboration on next generation AI systems and AI for industry.
-            </p>
-            <p style="margin-top: 16px;">
-              NGEN-AI 2026 is planned as an in-person event in Trento, with online participation over Zoom.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="committee">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-label">Organizing Committee</span>
-          <h2>Workshop leadership</h2>
-          <p>Replace the names and affiliations below with the confirmed AI4I committee members.</p>
-        </div>
-
-        <div class="committee-grid">
-          <div class="card">
-            <h3>General Chairs</h3>
-            <div class="person">
-              <strong>General Chair 1</strong>
-              <span>Affiliation, Country</span>
-            </div>
-            <div class="person">
-              <strong>General Chair 2</strong>
-              <span>Affiliation, Country</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>TPC Chairs</h3>
-            <div class="person">
-              <strong>TPC Chair 1</strong>
-              <span>Affiliation, Country</span>
-            </div>
-            <div class="person">
-              <strong>TPC Chair 2</strong>
-              <span>Affiliation, Country</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Program Committee</h3>
-            <div class="pc-box">
-              Program Committee members will be announced soon.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="submit">
-      <div class="container">
-        <div class="submit-band">
-          <div>
-            <h2>Submit to AI4I</h2>
-            <p>
-              Authors are invited to submit original and unpublished work through the NGEN-AI 2026 submission system. Please update the button link if AI4I receives a dedicated submission track or workshop link.
-            </p>
-          </div>
-          <a class="btn" href="https://easychair.org/" target="_blank" rel="noopener noreferrer">Submit Paper</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © 2026 International Workshop on AI for Industry (AI4I 2026). Organized with NGEN-AI 2026.
-    </div>
-  </footer>
-</body>
-</html>
+              AI4I focuses on research and practice that addresses these challenges. The workshop welcomes contributions on AI methods, architectures, platforms, evaluatio
