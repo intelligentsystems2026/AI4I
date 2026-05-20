@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI4I 2026 | International Workshop on AI for Industry</title>
+  <meta name="description" content="International Workshop on AI for Industry (AI4I). Call for papers, scope, topics, important dates, organizing committee, and submission details." />
+
+  <style>
+    :root {
+      --black: #08070d;
+      --black-soft: #14121c;
+      --purple-dark: #3b0764;
+      --purple: #7c3aed;
+      --purple-light: #c4b5fd;
+      --purple-soft: #f3e8ff;
+      --white: #ffffff;
+      --off-white: #faf8ff;
+      --text: #1f1b2e;
+      --muted: #6b6479;
+      --border: rgba(124, 58, 237, 0.18);
+      --shadow: 0 24px 60px rgba(8, 7, 13, 0.22);
+      --radius: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(8, 7, 13, 0.92);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-weight: 900;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, var(--purple-light), var(--purple) 45%, var(--purple-dark));
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 900;
+      box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple-light);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(124, 58, 237, 0.55), transparent 28%),
+        radial-gradient(circle at 18% 90%, rgba(196, 181, 253, 0.24), transparent 24%),
+        linear-gradient(135deg, #08070d 0%, #151024 52%, #2e1065 100%);
+      color: var(--white);
+      padding: 108px 0 86px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 15px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--purple-light);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.16rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 900;
+      border: 2px solid var(--purple);
+      background: var(--purple);
+      color: var(--white);
+      transition: 0.22s ease;
+      box-shadow: 0 16px 36px rgba(124, 58, 237, 0.34);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #6d28d9;
+      border-color: #6d28d9;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel h3 {
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+    }
+
+    .quick-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+    }
+
+    .quick-list li {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 5px solid var(--purple-light);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 800;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-head {
+      max-width: 860px;
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 900;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--black);
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 18px 45px rgba(8, 7, 13, 0.08);
+    }
+
+    .card.dark {
+      background: var(--black-soft);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .card h3 {
+      color: inherit;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .card.dark p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 17px;
+      border-radius: 18px;
+      background: var(--purple-soft);
+      color: var(--purple-dark);
+      font-weight: 800;
+      border: 1px solid rgba(124, 58, 237, 0.18);
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .topic {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      font-weight: 800;
+      color: var(--black);
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 12px 28px rgba(8, 7, 13, 0.06);
+    }
+
+    .dates {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .date-card {
+      background: var(--black-soft);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .date-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(124, 58, 237, 0.38);
+      top: -48px;
+      right: -42px;
+    }
+
+    .date-card strong {
+      display: block;
+      position: relative;
+      z-index: 1;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .date-card span {
+      position: relative;
+      z-index: 1;
+      color: var(--purple-light);
+      font-weight: 900;
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .person {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+    }
+
+    .person:last-child {
+      border-bottom: 0;
+    }
+
+    .person strong {
+      display: block;
+      color: var(--black);
+    }
+
+    .person span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .pc-box {
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--black-soft);
+      color: var(--white);
+      text-align: center;
+      border: 1px dashed var(--purple-light);
+      font-weight: 900;
+    }
+
+    .submit-band {
+      background: linear-gradient(135deg, var(--black) 0%, var(--purple-dark) 100%);
+      color: var(--white);
+      border-radius: 34px;
+      padding: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .submit-band::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(196, 181, 253, 0.2);
+      right: -90px;
+      top: -120px;
+    }
+
+    .submit-band > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .submit-band h2 {
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .submit-band p {
+      color: rgba(255, 255, 255, 0.74);
+      max-width: 760px;
+    }
+
+    .submit-band .btn {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+      white-space: nowrap;
+    }
+
+    .submit-band .btn:hover {
+      background: var(--purple-light);
+      border-color: var(--purple-light);
+    }
+
+    footer {
+      background: var(--black);
+      color: rgba(255, 255, 255, 0.68);
+      text-align: center;
+      padding: 34px 0;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .grid-2,
+      .committee-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topic-grid,
+      .dates {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .submit-band {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .hero {
+        padding: 72px 0 58px;
+      }
+
+      .topic-grid,
+      .dates {
+        grid-template-columns: 1fr;
+      }
+
+      .submit-band {
+        padding: 34px 24px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="AI4I Workshop home">
+        <span class="brand-mark">AI</span>
+        <span>AI4I 2026</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#cfp">Call for Papers</a>
+        <a href="#topics">Topics</a>
+        <a href="#dates">Important Dates</a>
+        <a href="#committee">Committee</a>
+        <a href="#submit">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">International Workshop</span>
+          <h1>AI for Industry</h1>
+          <p>
+            The International Workshop on AI for Industry (AI4I) is a forum for researchers, practitioners, technology providers, and industrial stakeholders working on the design, deployment, evaluation, and governance of AI solutions in real industrial environments.
+          </p>
+          <p>
+            AI4I welcomes contributions that connect AI research with industrial needs, including scalable AI systems, trustworthy AI, intelligent automation, predictive analytics, digital twins, industrial IoT, human-AI collaboration, and AI-enabled decision support.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#submit">Submit Paper</a>
+            <a class="btn btn-outline" href="#cfp">Read the CFP</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Workshop quick information">
+          <h3>Workshop at a Glance</h3>
+          <ul class="quick-list">
+            <li>Acronym: AI4I</li>
+            <li>Theme: Practical, trustworthy, and scalable AI for industry</li>
+            <li>Format: To be announced</li>
+            <li>Venue: To be announced</li>
+            <li>Proceedings: To be announced</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="cfp">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Call for Papers</span>
+          <h2>Bridging AI innovation and industrial transformation.</h2>
+          <p>
+            AI4I invites original submissions that explore how artificial intelligence can create value in industrial contexts while addressing practical challenges such as reliability, scalability, safety, trustworthiness, integration, cost, data quality, and organizational adoption.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Scope</h3>
+            <p>
+              AI is reshaping industrial sectors by enabling intelligent automation, predictive maintenance, quality inspection, resource optimization, supply-chain intelligence, autonomous operations, and advanced decision support. However, moving AI from prototypes to production requires more than model accuracy. Industrial AI solutions must operate under real constraints, including legacy systems, limited data, safety requirements, domain-specific regulations, explainability needs, cybersecurity risks, and changing operational environments.
+            </p>
+            <p style="margin-top: 16px;">
+              AI4I focuses on research and practice that addresses these challenges. The workshop welcomes contributions on AI methods, architectures, platforms, evaluation approaches, industrial case studies, deployment lessons, and socio-technical perspectives related to the adoption of AI in manufacturing, energy, mobility, healthcare, logistics, construction, agriculture, telecom, smart cities, and other industrial domains.
+            </p>
+          </div>
+
+          <div class="card dark">
+            <h3>Submission Types</h3>
+            <p>
+              The workshop welcomes full research papers, short papers, position papers, experience reports, industrial case studies, tool demonstrations, benchmark and dataset papers, and papers describing negative results or lessons learned from real-world deployments.
+            </p>
+            <p style="margin-top: 16px;">
+              Submissions should clearly explain the industrial problem, AI approach, evaluation setting, practical relevance, and expected contribution to both research and practice.
+            </p>
+            <div class="notice">
+              Add your final publication and proceedings statement here once confirmed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Topics of Interest</span>
+          <h2>Relevant topics include, but are not limited to:</h2>
+        </div>
+
+        <div class="topic-grid">
+          <div class="topic">AI for manufacturing, production, and process optimization</div>
+          <div class="topic">Predictive maintenance and anomaly detection in industrial systems</div>
+          <div class="topic">Industrial IoT, edge AI, and cloud-edge intelligence</div>
+          <div class="topic">Digital twins, simulation, and AI-enabled system monitoring</div>
+          <div class="topic">Computer vision for inspection, quality control, and safety</div>
+          <div class="topic">Generative AI and LLMs for industrial workflows</div>
+          <div class="topic">Agentic AI, autonomous operations, and intelligent decision support</div>
+          <div class="topic">Trustworthy, explainable, safe, and responsible AI for industry</div>
+          <div class="topic">Human-AI collaboration in industrial environments</div>
+          <div class="topic">AI for logistics, supply chains, and resource planning</div>
+          <div class="topic">Federated learning and privacy-preserving AI across industrial sites</div>
+          <div class="topic">MLOps, lifecycle management, monitoring, and maintenance of industrial AI</div>
+          <div class="topic">AI for energy efficiency, sustainability, and circular industry</div>
+          <div class="topic">Cybersecurity, resilience, and risk management for industrial AI</div>
+          <div class="topic">Industrial datasets, benchmarks, testbeds, and reproducibility</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dates">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Important Dates</span>
+          <h2>Key deadlines</h2>
+          <p>Please replace the placeholder dates below with the final AI4I workshop schedule.</p>
+        </div>
+
+        <div class="dates">
+          <div class="date-card">
+            <strong>Paper Submission</strong>
+            <span>DD Month YYYY</span>
+          </div>
+          <div class="date-card">
+            <strong>Author Notification</strong>
+            <span>DD Month YYYY</span>
+          </div>
+          <div class="date-card">
+            <strong>Camera-Ready Due</strong>
+            <span>DD Month YYYY</span>
+          </div>
+          <div class="date-card">
+            <strong>Workshop Date</strong>
+            <span>DD Month YYYY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="committee">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Organizing Committee</span>
+          <h2>Workshop leadership</h2>
+          <p>Replace the names and affiliations below with the confirmed AI4I committee members.</p>
+        </div>
+
+        <div class="committee-grid">
+          <div class="card">
+            <h3>General Chairs</h3>
+            <div class="person">
+              <strong>General Chair 1</strong>
+              <span>Affiliation, Country</span>
+            </div>
+            <div class="person">
+              <strong>General Chair 2</strong>
+              <span>Affiliation, Country</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>TPC Chairs</h3>
+            <div class="person">
+              <strong>TPC Chair 1</strong>
+              <span>Affiliation, Country</span>
+            </div>
+            <div class="person">
+              <strong>TPC Chair 2</strong>
+              <span>Affiliation, Country</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Program Committee</h3>
+            <div class="pc-box">
+              Program Committee members will be announced soon.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="submit">
+      <div class="container">
+        <div class="submit-band">
+          <div>
+            <h2>Submit to AI4I</h2>
+            <p>
+              Authors are invited to submit original and unpublished work through the workshop submission system. Please update the button link below with the final submission portal.
+            </p>
+          </div>
+          <a class="btn" href="https://easychair.org/" target="_blank" rel="noopener noreferrer">Submit Paper</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 International Workshop on AI for Industry (AI4I). All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
